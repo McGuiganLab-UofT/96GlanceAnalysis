@@ -9,4 +9,6 @@ We have tested these scripts with MATLAB 2019a or newer. You will also need the 
 
 ## Usage
 
-Download the functions in the repository and add them to your MATLAB path. Then, navigate to the directory that contains the images to be analyzed and run the "glanceSegmentationScript" file. This script loads the template image that will be used to detect the location of the Glance channel with convolution, and calls the "processGlanceWell_edge" function on all of the images. The script will export a crop of the ROI of each image, and a text file with mean gray values in these ROIs.
+Download the functions in the repository and add them to your MATLAB path. Then, navigate to the directory that contains the images to be analyzed and run the "glanceSegmentationScript" file. This script loads the template image that will be used to detect the location of the Glance channel with convolution, and calls the "processGlanceWell_edge" function on all of the images.
+
+The script will export a crop of the ROI of each image, and a text file with mean gray values in these ROIs.
