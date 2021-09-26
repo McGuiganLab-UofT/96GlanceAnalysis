@@ -1,6 +1,8 @@
 %%% Script for processing 96-GLANCE images, finding the location of the
 %%% channel and getting mean grey values
 
+%%% Jose Cadavid, University of Toronto, 2021
+
 % V2: Changed the procedure to use a mask for detecting edges, instead of a
 % full template of the channel
 
@@ -60,21 +62,18 @@ for i=1:numel(imgs)
         % Save image crop
         imwrite(uint16(imgROI),strcat('crop',nameImg));
 
-        % Plot channel and ROI
-        %imagesc(log(img+1))
-        imagesc(rescale(log(img+1)))
-        % Set aspect ratio and remove ticks
-        axis image
-        axis off
-        colormap bone
-        hold on
-        % Add detected center and ROI
-        scatter(yM,xM,'ro','filled')
-        plot([yM-sROI(2)/2, yM+sROI(2)/2, yM+sROI(2)/2, yM-sROI(2)/2, yM-sROI(2)/2],...
-            [xM-sROI(1)/2, xM-sROI(1)/2, xM+sROI(1)/2, xM+sROI(1)/2, xM-sROI(1)/2],'r--','linewidth', 1.5)
+        % Plot channel and ROI - uncomment if you want to see the images and the detected ROI
+        % imagesc(rescale(log(img+1)))
+        % % Set aspect ratio and remove ticks
+        % axis image
+        % axis off
+        % colormap bone
+        % hold on
+        % % Add detected center and ROI
+        % scatter(yM,xM,'ro','filled')
+        % plot([yM-sROI(2)/2, yM+sROI(2)/2, yM+sROI(2)/2, yM-sROI(2)/2, yM-sROI(2)/2],...
+        %     [xM-sROI(1)/2, xM-sROI(1)/2, xM+sROI(1)/2, xM+sROI(1)/2, xM-sROI(1)/2],'r--','linewidth', 1.5)
 
-        % Save
-        export_fig(strcat('detectedROI_',erase(nameImg,'.tif'),'.png'))
         clf
     end
 end
